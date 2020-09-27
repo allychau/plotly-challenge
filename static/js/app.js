@@ -53,8 +53,8 @@ function buildCharts(sample)
             orientation: 'h'
         }];
         var barLayout = {
-            title: "Top 10 OTUs Found",
-            margin: {t:30, l: 150}
+            //title: "Top 10 OTUs Found",
+            margin: {t:0, l: 150}
         };
 
         Plotly.newPlot("bar", barData, barLayout);
@@ -71,8 +71,8 @@ function buildCharts(sample)
             }
         }];
         var bubbleLayout = {
-            title: "Cultured Bacteria",
-            margin: {t: 30},
+            //title: "Cultured Bacteria",
+            margin: {t: 0},
             hovermode: "closes",
             xaxis: {title: "OTU ID"}
         };
