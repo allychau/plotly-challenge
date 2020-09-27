@@ -14,7 +14,6 @@ function init()
         });
         //set drop down menu initial sample to the first sample in the array
         var firstSample = samples[0];
-        console.log("firstsample: " , firstSample);
         buildCharts(firstSample);
         buildMetadata(firstSample);
     });
@@ -25,7 +24,6 @@ function optionChanged(newSample)
     var dropdownMenu = d3.select("#selDataset");
     // Assign the value of the dropdown menu option to a variable
     var newSample = dropdownMenu.property("value"); 
-    console.log("newSample: ", newSample);
     buildCharts(newSample);
     buildMetadata(newSample);
 }
@@ -33,12 +31,9 @@ function buildCharts(sample)
 {
     d3.json("samples.json").then((data) => {
         var samples = data.samples;
-        console.log("samples: ", samples);
         //keep only sample array object that matches argument sample '940'
         var sampleArray = samples.filter(sampleObj => sampleObj.id == sample );
-        console.log("sampleArray: ", sampleArray);
         var result = sampleArray[0];
-        console.log("result: " ,result);
         var otu_ids = result.otu_ids;
         var sample_values = result.sample_values;
         var otu_labels = result.otu_labels;
@@ -58,7 +53,7 @@ function buildCharts(sample)
             orientation: 'h'
         }];
         var barLayout = {
-            title: "Top 10 OTUs found",
+            title: "Top 10 OTUs Found",
             margin: {t:30, l: 150}
         };
 
@@ -93,8 +88,6 @@ function buildMetadata(sample)
         var metadata = data.metadata;    
         var metadataArray = metadata.filter(metadataObj => metadataObj.id == sample);
         result = metadataArray[0];
-        console.log(result);
-
         var panel = d3.select("#sample-metadata");
         //clear the panel body div
         panel.html("");
